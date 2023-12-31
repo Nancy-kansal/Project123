@@ -1,15 +1,7 @@
-from flask import Flask, jsonify
 from flask import Flask, render_template, jsonify
 import requests
-import json
-import pandas as pd
-
 
 app = Flask(__name__)
-
-
-app = Flask(__name__)
-
 
 @app.route('/')
 def fetch_data():
@@ -34,14 +26,14 @@ def fetch_data():
             })
 
         return render_template('index.html', sorted_product_list=sorted_product_list)
-        return jsonify(sorted_product_list)
+        # If you want to return JSON data, use the line below instead
+        # return jsonify(sorted_product_list)
     else:
         return jsonify({'error': f'Failed to fetch data. Status code: {response.status_code}'})
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
-
-
-if __name__ == "__main__":
-    app.run(host="localhost", port=int("8000"))
+    # For local development, you can use the following line with debug=True
+    # app.run(debug=True)
+    
+    # For production deployment, use the following line with debug=False
+    app.run(host="0.0.0.0", port=int("5000"))
