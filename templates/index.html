@@ -1,0 +1,39 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorted Product List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Additional custom styles can be added here */
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="mt-4 mb-4">Sorted Product List</h1>
+
+    <div class="row" id="productCardContainer">
+        {% for product in sorted_product_list %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product['Title'] }}</h5>
+                    <p class="card-text">Product ID: {{ product['Product ID'] }}</p>
+                    <p class="card-text">Popularity: {{ product['Popularity'] }}</p>
+                    <p class="card-text">Price: {{ product['Price'] }}</p>
+                    <p class="card-text">Subcategory: {{ product['Subcategory'] }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
