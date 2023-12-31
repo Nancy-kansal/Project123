@@ -5,16 +5,61 @@
     <title>Sorted Product List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Additional custom styles can be added here */
+        /* Additional custom styles */
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            padding-top: 30px;
+        }
+
+        h1 {
+            color: #007bff; /* Blue color for the heading */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
         .card {
             margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: #fff; /* White color for the title background */
+            background-color: #007bff; /* Blue color for the title background */
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .card-text {
+            color: #ffc107; /* Yellow color for card text */
+            margin-bottom: 5px;
+            padding: 10px;
+        }
+
+        .card-text span {
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1 class="mt-4 mb-4">Sorted Product List</h1>
+    <h1>Sorted Product List</h1>
 
     <div class="row" id="productCardContainer">
         {% for product in sorted_product_list %}
@@ -22,10 +67,10 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ product['Title'] }}</h5>
-                    <p class="card-text">Product ID: {{ product['Product ID'] }}</p>
-                    <p class="card-text">Popularity: {{ product['Popularity'] }}</p>
-                    <p class="card-text">Price: {{ product['Price'] }}</p>
-                    <p class="card-text">Subcategory: {{ product['Subcategory'] }}</p>
+                    <p class="card-text">Product ID: <span>{{ product['Product ID'] }}</span></p>
+                    <p class="card-text">Popularity: <span>{{ product['Popularity'] }}</span></p>
+                    <p class="card-text">Price: <span>{{ product['Price'] }}</span></p>
+                    <p class="card-text">Subcategory: <span>{{ product['Subcategory'] }}</span></p>
                 </div>
             </div>
         </div>
